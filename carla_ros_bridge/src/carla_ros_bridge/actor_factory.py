@@ -22,6 +22,7 @@ import carla_common.transforms as trans
 
 from carla_ros_bridge.actor import Actor
 from carla_ros_bridge.actor_control import ActorControl
+from carla_ros_bridge.vehicle_physics_control import PhysicsControl
 from carla_ros_bridge.actor_list_sensor import ActorListSensor
 from carla_ros_bridge.camera import Camera, RgbCamera, DepthCamera, SemanticSegmentationCamera, DVSCamera
 from carla_ros_bridge.collision_sensor import CollisionSensor
@@ -344,6 +345,12 @@ class ActorFactory(object):
                                  name=name,
                                  parent=parent,
                                  node=self.node)
+
+        elif type_id == PhysicsControl.get_blueprint_name():
+            actor = PhysicsControl(uid=uid,
+                                   name=name,
+                                   parent=parent,
+                                   node=self.node)
 
         elif carla_actor.type_id.startswith('traffic'):
             if carla_actor.type_id == "traffic.traffic_light":

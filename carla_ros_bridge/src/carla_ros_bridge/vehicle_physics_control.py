@@ -170,5 +170,5 @@ class PhysicsControl(PseudoActor):
             self.vehicle_physics_control.use_sweep_wheel_collision = \
                 phy_ctrl.use_sweep_wheel_collision
 
-            ## Apply Changes to carla_actor
+            # Apply Changes to carla_actor
             self.parent.carla_actor.apply_physics_control(self.vehicle_physics_control)
